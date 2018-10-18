@@ -32,29 +32,20 @@ def decript(mensagem):
 
 def main():
 
-	tipo = sys.argv[1].lower()
-	mensagem = sys.argv[2].lower()
+	try:
+		tipo = sys.argv[1].lower()
+		mensagem = sys.argv[2].lower()
 
-	#print(tipo, mensagem)
+		dicionario = {'cript':cript,'decript':decript}
 
-	if tipo == 'cript':
-		cript(mensagem)
-	elif tipo == 'decript':
-		decript(mensagem)
-	else:
-		print('comando invalido')
+	except IndexError as e:
+		print('Preencher tipo(cript ou decript) e mensagem(livre)')
 
-
-
-
+	try:
+		dicionario[tipo](mensagem)
+		
+	except KeyError as e:
+		print('Tipo "' + tipo + '" inválido')
 
 if __name__ == '__main__':
 	main()
-
-
-	#------------------------------------------------------
-
-# 	def escopo(nome,idade=18):
-# 	return 'nome {n} idade: {i}'.format(n=nome,i=idade)
-# 	#ou print
-# print(escopo('gabriel',23))
