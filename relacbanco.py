@@ -11,7 +11,7 @@ except Exception as e:
     print("Erro: {}".format(e))
     exit()
 
-cur.execute("select * from conta where id =4;")
+cur.execute("select * from conta where id = 4;")
 
 #pessoa = cur.fetchone()
 pessoa = cur.fetchone()
